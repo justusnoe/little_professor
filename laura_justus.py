@@ -25,6 +25,7 @@ def main():
     # Step 5: Print the user's score
     print("Score:", count_correct)
 
+# Step 1: Get the user's chosen difficulty level
 # Input: void
 # Output: integer (user-provided integer between 1 and 3)
 def get_level():
@@ -35,7 +36,8 @@ def get_level():
                 return level
         except ValueError:
             pass
-       
+
+# Step 2: Generate a math problem
 # Input: integer (level)
 # Output: string (prompt for the user, e.g., '3 + 8 = '), integer (correct answer, e.g., 11)
 def generate_prompt(level):
@@ -48,6 +50,7 @@ def generate_prompt(level):
     correct_answer = X + Y
     return prompt, correct_answer
 
+# Generate random numbers based on the chosen difficulty level
 # Input: integer (level)
 # Output: integer (random number between 0 and 9, 10 and 99, or 100 and 999)
 def generate_integer(level):
@@ -58,6 +61,7 @@ def generate_integer(level):
     else:
         return random.randint(100, 999)
 
+# Step 3: Prompt the user for an answer, allowing up to T attempts
 # Input: string (prompt for user), integer (correct answer), integer (T = maximum number of tries)
 # Output: boolean (True if the answer is correct within T tries, False otherwise)
 def get_answer(prompt, n, T):
@@ -78,6 +82,20 @@ def get_answer(prompt, n, T):
             tries += 1
     # Step 3.4: User couldn't answer correctly within T tries, provide the correct answer
     return False  # User couldn't answer correctly within T tries
+
+# Get the user's input within a specified range
+# Input: string (prompt to user), integer (minimum value for input), integer (maximum value for input)
+# Output: integer (user's provided integer between minimum and maximum)
+def get_integer(prompt, Min, Max):
+    while True:
+        try:
+            user_input = int(input(prompt))  # Prompt the user for input
+            if Min <= user_input <= Max:
+                return user_input  # Return the user's input if it's within the specified range
+            else:
+                print(f"Please enter a number between {Min} and {Max}.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
 # Main
 if __name__ == "__main__":
