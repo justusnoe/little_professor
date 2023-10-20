@@ -84,6 +84,7 @@ def get_answer(prompt, n, T):
     return False  # User couldn't answer correctly within T tries
 
 # Get the user's input within a specified range
+# get_integer function is not currently used within the main function, is an alternative for the generate_ingeger function 
 # Input: string (prompt to user), integer (minimum value for input), integer (maximum value for input)
 # Output: integer (user's provided integer between minimum and maximum)
 def get_integer(prompt, Min, Max):
