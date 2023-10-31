@@ -1,16 +1,11 @@
-from myhaversine import mysqrt
+from myhaversine import mysqrt, mycos
 from pytest import approx
 
-# version one, but tolerance level is not the same with approx 
-# def test_positive():
-#     assert mysqrt(4) == approx(2)
-#     assert mysqrt(9) == approx(3)
-
-# setting the tolerance level manually 
-
+# testing mysqrt function 
+# tolerance level can set with approx
 def test_positive():
-    assert mysqrt(4) > -2*10**-5
-    assert mysqrt(9) > -3*10**-5
+    assert mysqrt(4) == approx(2, abs=10**-5)
+    assert mysqrt(9) == approx(3, abs=10**-5)
 
 def test_negative():
     assert mysqrt(-4) == 0
@@ -18,4 +13,13 @@ def test_negative():
 
 def test_zero():
     assert mysqrt(0) > 10**-5
+
+
+# testing mycos 
+def test_mycos(): 
+    assert mycos(0) == 1
+    assert mycos(90) == 0
+    assert mycos(180) == -1
+    assert mycos(360) == 1  
+
 

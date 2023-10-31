@@ -1,3 +1,3 @@
-from myhaversine import mysqrt
+from myhaversine import mycos
 
-print(mysqrt(0))
+print(mycos(360))
