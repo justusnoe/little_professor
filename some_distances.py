@@ -1,5 +1,5 @@
 from haversine import haversine
-from myhaversine import myhaversine
+from haversine_function import myhaversine
 
 # Some locations
 d={
