@@ -1,5 +1,6 @@
 import pytest
-from myfunctions import mysqrt, mycos, myarcsin, mysin, deg2rad, myhaversine
+from myfunctions import mysqrt, mycos, myarcsin, mysin
+import myhaversine
 
 # Test the mysqrt function
 def test_mysqrt():
