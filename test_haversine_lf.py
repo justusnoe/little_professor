@@ -77,21 +77,23 @@ def test_mysin():
     assert mysin(180) == 0
 
 # Test the myhaversine function
-def test_myhaversine():
-    # Replace these with actual latitude and longitude values
-    lat1 = 0
-    lon1 = 0
-    lat2 = 0
-    lon2 = 1
+def test_haversine():
+    # Test the haversine function with known coordinates and distances
 
-    # Expected distance using the haversine formula
-    expected_distance = 111.32  # Approximately 111.32 km for a 1-degree difference in longitude
+    # Coordinates of two points: (lat1, lon1) to (lat2, lon2)
+    # Use known distances for testing
 
-    # Calculate the distance using myhaversine
-    distance = myhaversine((lat1, lon1), (lat2, lon2))
+    # Example 1: Two points with the same coordinates (distance should be 0)
+    assert haversine((0, 0), (0, 0)) == 0
 
-    # Check if the distance is within 100 meters of the expected distance
-    assert abs(distance - expected_distance) < 0.1  # 100 meters in kilometers
+    # Example 2: Two points 1 degree apart (should be around 111.32 km)
+    assert haversine((0, 0), (0, 1)) == pytest.approx(111.32, abs=0.01)
+
+    # Example 3: Two points 180 degrees apart (should be around 20,000 km)
+    assert haversine((0, 0), (0, 180)) == pytest.approx(20000, abs=100)
+
+    # Add more test cases as needed
+
 
 if __name__ == "__main__":
     pytest.main()
