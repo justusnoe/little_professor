@@ -10,7 +10,7 @@ def rad2deg(x):
 # Square root function using bissection method
 # Input: number
 def  mysqrt(x):
-    tol=10**-5 # error tolerance
+    tol=10**-10 # error tolerance
     if x<0:
         return 0
     min=0
@@ -45,7 +45,7 @@ def mycos(x):
 # McLaurin approximation for cosine
 # Input: angle in degrees (supposed to be between 0 and 45)
 def cos45(x):
-    n=6 # Number of terms in the approximation
+    n=20 # Number of terms in the approximation 
     if x<0 or x>45:
         return 'not reliable'
     x=deg2rad(x)
@@ -59,7 +59,7 @@ def cos45(x):
 # McLaurin approximation for sine
 # Input: angle in degrees (supposed to be between 0 and 45)
 def sin45(x):
-    n=6 # Number of terms in the approximation
+    n=20 # Number of terms in the approximation
     if x<0 or x>45:
         return 'not reliable'
     x=deg2rad(x)
@@ -74,7 +74,7 @@ def sin45(x):
 # input: number
 # output: angle in decimal degrees
 def myarcsin(x):
-    tol=10**-5 # error tolerance
+    tol=10**-10 # error tolerance
     if x <= -1:
         return -90
     if x >= 1:

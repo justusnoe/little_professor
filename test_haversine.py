@@ -1,5 +1,7 @@
-from myhaversine import mysqrt, mycos, myarcsin, mysin
+from myfunctions import mysqrt, mycos, myarcsin, mysin
+from myhaversine import myhaversine
 from pytest import approx
+
 
 # testing mysqrt  
 # tolerance level can be set with approx
@@ -50,5 +52,20 @@ def test_mysin_zero():
     assert mysin(0) == 0
 
 # test myhaversine
+# Q: how to test corner cases? pole - equator 
+# Q: how to adapt 
+
+lat1 = 45.7597
+lon1 = 4.8422
+
+lat2 = 48.8567
+lon2 = 2.3508
+
+p1 = lat1,lon1
+p2 = lat2,lon2
+
+def test_myhaversine(): 
+    assert myhaversine(p1,p2) == approx(392.446, abs=0.1)
+
 
     
