@@ -1,6 +1,6 @@
 import pytest
 from myfunctions import mysqrt, mycos, myarcsin, mysin
-import myhaversine
+from myhaversine import myhaversine
 
 # Test the mysqrt function
 def test_mysqrt():
