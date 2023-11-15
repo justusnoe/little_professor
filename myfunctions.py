@@ -12,7 +12,9 @@ def rad2deg(x):
 def  mysqrt(x):
     tol=10**-10 # error tolerance
     if x<0:
-        return 0
+        return ValueError # because minus values not possible 
+    elif x == 0: 
+        return 0 
     min=0
     max=x+1
     mid=(min+max)/2

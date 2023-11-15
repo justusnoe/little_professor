@@ -6,15 +6,15 @@ from pytest import approx
 # testing mysqrt  
 # tolerance level can be set with approx
 def test_mysqrt_positive():
-    assert mysqrt(4) == approx(2, abs=10**-5)
-    assert mysqrt(9) == approx(3, abs=10**-5)
+    assert mysqrt(4) == approx(2, abs=10**-10)
+    assert mysqrt(9) == approx(3, abs=10**-10)
 
 def test_mysqrt_negative():
-    assert mysqrt(-4) == 0
-    assert mysqrt(-3) == 0
+    assert mysqrt(-4) == ValueError
+    assert mysqrt(-3) == ValueError
 
 def test_mysqrt_zero():
-    assert mysqrt(0) > 10**-5
+    assert mysqrt(0) == 0
 
 
 # testing mycos 
@@ -51,21 +51,21 @@ def test_mysin_negative():
 def test_mysin_zero():
     assert mysin(0) == 0
 
-# test myhaversine
-# Q: how to test corner cases? pole - equator 
-# Q: how to adapt 
+# test myhaversine with the distance from pole to equator 
 
-lat1 = 45.7597
-lon1 = 4.8422
+lat1 = 0
+lon1 = 0
 
-lat2 = 48.8567
-lon2 = 2.3508
+lat2 =90
+lon2 = 0
 
 p1 = lat1,lon1
 p2 = lat2,lon2
 
+expected_value = 10007.55722101796 #haversine function 
+
 def test_myhaversine(): 
-    assert myhaversine(p1,p2) == approx(392.446, abs=0.1)
+    assert myhaversine(p1,p2) == approx(expected_value, abs = 0.1)
 
 
     

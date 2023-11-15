@@ -84,13 +84,13 @@ def test_haversine():
     # Use known distances for testing
 
     # Example 1: Two points with the same coordinates (distance should be 0)
-    assert haversine((0, 0), (0, 0)) == 0
+    assert myhaversine((0, 0), (0, 0)) == 0
 
     # Example 2: Two points 1 degree apart (should be around 111.32 km)
-    assert haversine((0, 0), (0, 1)) == pytest.approx(111.32, abs=0.01)
+    assert myhaversine((0, 0), (0, 1)) == pytest.approx(111.32, abs=0.01)
 
     # Example 3: Two points 180 degrees apart (should be around 20,000 km)
-    assert haversine((0, 0), (0, 180)) == pytest.approx(20000, abs=100)
+    assert myhaversine((0, 0), (0, 180)) == pytest.approx(20000, abs=100)
 
     # Add more test cases as needed
 
