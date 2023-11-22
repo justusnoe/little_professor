@@ -52,20 +52,12 @@ def test_mysin_zero():
     assert mysin(0) == 0
 
 # test myhaversine with the distance from pole to equator 
-
-lat1 = 0
-lon1 = 0
-
-lat2 =90
-lon2 = 0
-
-p1 = lat1,lon1
-p2 = lat2,lon2
-
-expected_value = 10007.55722101796 #haversine function 
-
 def test_myhaversine(): 
-    assert myhaversine(p1,p2) == approx(expected_value, abs = 0.1)
-
-
+    p1,p2 = (0,0),(90,0)
+    assert myhaversine(p1,p2) == approx(10007.5572, abs = 0.1)
+    p1,p2 = (90,0),(48.8567, 2.3508)
+    assert myhaversine(p1,p2) == approx(4574.9, abs = 0.1)
+    p1,p2 = (90,0),( -33.45, -70.67)
+    assert myhaversine(p1,p2) == approx(13727.0, abs = 0.1)
+    
     

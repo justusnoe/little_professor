@@ -1,6 +1,8 @@
 import math
 import myfunctions
 
+#using other tests! improve this functions with a loop.  
+
 # test mysqrt function by comparing with the math function 
 print("First test mysqrt: 9")
 print(math.sqrt(9))
